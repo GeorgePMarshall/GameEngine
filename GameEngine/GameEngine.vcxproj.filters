@@ -13,5 +13,39 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\General">
+      <UniqueIdentifier>{d89e4bd6-4041-4174-b383-396dc85aeee7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\General">
+      <UniqueIdentifier>{c7613141-e662-4a30-b907-6e9aacd89b32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Renederer">
+      <UniqueIdentifier>{970c24dc-2164-457f-94df-afd9c7f1d215}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{2de643e8-b27f-43c9-8e1d-353f84123e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{86a1cf37-dec2-4b77-a725-1edc0f9f9c36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{a4144de3-a5e8-48ce-9470-8e5bda5e729d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Dependencies">
+      <UniqueIdentifier>{a6ae5494-06f9-47ee-8171-65b863961e34}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>Source Files\General</Filter>
+    </ClCompile>
+    <ClCompile Include="Dependencies\Include\glad\glad.c">
+      <Filter>Resource Files\Dependencies</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\Application.h">
+      <Filter>Header Files\General</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
