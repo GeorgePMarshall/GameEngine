@@ -1,9 +1,11 @@
 #include "TestGame.h"
-
+#include <ShaderProgram.h>
 
 
 void TestGame::Initialize()
 {
+	ShaderProgram shader("DefaultShader.vert", "DefaultShader.frag");
+
 
 }
 

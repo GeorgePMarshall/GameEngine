@@ -8,12 +8,14 @@
 
 #include <iostream>
 
+#include "ShaderProgram.h"
+
 
 class Application
 {
 	private:
 		GLFWwindow* window;
-
+		
 	public:
 		int Run(const char* windowName);
 

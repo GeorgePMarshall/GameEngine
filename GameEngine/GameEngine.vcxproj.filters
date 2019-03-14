@@ -19,9 +19,6 @@
     <Filter Include="Source Files\General">
       <UniqueIdentifier>{c7613141-e662-4a30-b907-6e9aacd89b32}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Renederer">
-      <UniqueIdentifier>{970c24dc-2164-457f-94df-afd9c7f1d215}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{2de643e8-b27f-43c9-8e1d-353f84123e50}</UniqueIdentifier>
     </Filter>
@@ -34,6 +31,9 @@
     <Filter Include="Resource Files\Dependencies">
       <UniqueIdentifier>{a6ae5494-06f9-47ee-8171-65b863961e34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Renderer">
+      <UniqueIdentifier>{970c24dc-2164-457f-94df-afd9c7f1d215}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp">
@@ -42,10 +42,16 @@
     <ClCompile Include="Dependencies\Include\glad\glad.c">
       <Filter>Resource Files\Dependencies</Filter>
     </ClCompile>
+    <ClCompile Include="Source\ShaderProgram.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Application.h">
       <Filter>Header Files\General</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\ShaderProgram.h">
+      <Filter>Header Files\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

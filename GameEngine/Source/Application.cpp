@@ -60,7 +60,6 @@ int Application::Run(const char* windowName)
 
 	glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
 
-
 	Initialize();
 
 	while (!glfwWindowShouldClose(window))
