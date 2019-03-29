@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "ShaderProgram.h"
+#include "Input.h"
 
 
 class Application
@@ -18,6 +19,8 @@ class Application
 		
 	public:
 		int Run(const char* windowName);
+
+		Input input;
 
 	protected:
 		virtual void Initialize() = 0;

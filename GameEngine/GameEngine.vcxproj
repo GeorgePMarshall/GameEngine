@@ -155,11 +155,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Headers\Application.h" />
+    <ClInclude Include="Headers\Console.h" />
+    <ClInclude Include="Headers\Input.h" />
     <ClInclude Include="Headers\ShaderProgram.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\Include\glad\glad.c" />
     <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\Console.cpp" />
+    <ClCompile Include="Source\Input.cpp" />
     <ClCompile Include="Source\ShaderProgram.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

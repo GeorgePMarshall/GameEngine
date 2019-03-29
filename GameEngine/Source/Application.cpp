@@ -60,6 +60,8 @@ int Application::Run(const char* windowName)
 
 	glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
 
+
+	input.Initialize(window);
 	Initialize();
 
 	while (!glfwWindowShouldClose(window))
@@ -68,6 +70,8 @@ int Application::Run(const char* windowName)
 
 		Update();
 		Draw();
+
+		input.LateUpdate();
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
