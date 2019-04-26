@@ -179,9 +179,9 @@ class Input
 
 		Button button;
 
-		//setup callbacks and keystates REQUIRED before use
+		//setup callbacks and keystates !REQUIRED before use
 		void Initialize(GLFWwindow* window);
-		//runs after main update
+		//run after main update
 		void LateUpdate();
 	
 		///KEYBOARD///

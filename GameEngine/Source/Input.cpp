@@ -41,9 +41,15 @@ void Input::StaticKeyCallback(GLFWwindow* window, GLint key, GLint scancode, GLi
 void Input::KeyCallback(GLFWwindow* window, GLint key, GLint scancode, GLint action, GLint mods)
 {
 	curKeyState[key] = action;
+	
+	////REMOVE REPEAT FOR NOW   FIX LATER (maybe?)/////
+	if (action == GLFW_REPEAT)
+		curKeyState[key] = GLFW_PRESS;
+	////REMOVE REPEAT FOR NOW   FIX LATER (maybe?)/////
 
 	if (action == GLFW_RELEASE)
 		prevKeyState[key] = GLFW_PRESS;
+	
 }
 
 //Text callbacks

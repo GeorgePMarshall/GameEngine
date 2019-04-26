@@ -60,23 +60,42 @@ int Application::Run(const char* windowName)
 
 	glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
 
+	glfwSwapInterval(1);
 
+	//INITIALIZATION//
+	//engine init first
 	input.Initialize(window);
+	renderer.Initialize();
+
 	Initialize();
 
+	//MAIN LOOP//
 	while (!glfwWindowShouldClose(window))
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+
+
+		//MAIN UPDATE//
+		console.Update(input);
+		objectManager.Update();
 		Update();
+
+		//MAIN DRAW//
+		renderer.Draw();
+		objectManager.Draw();
 		Draw();
 
+		//LATE UPDATE//
 		input.LateUpdate();
+
+
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
 
+	//CLEANUP//
 	Shutdown();
 	
 	glfwDestroyWindow(window);

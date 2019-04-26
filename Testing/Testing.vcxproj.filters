@@ -37,5 +37,11 @@
     <None Include="Shaders\DefaultShader.vert">
       <Filter>Resource Files\Shaders</Filter>
     </None>
+    <None Include="Shaders\BasicGeometry.vert">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
+    <None Include="Shaders\BasicGeometry.frag">
+      <Filter>Resource Files\Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

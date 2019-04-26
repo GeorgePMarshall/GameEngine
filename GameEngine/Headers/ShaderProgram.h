@@ -23,11 +23,15 @@ class ShaderProgram
 
 
 	public:
+		ShaderProgram() {};
 		ShaderProgram(const char * vertexShaderPath, const char* fragmentShaderPath);
 		ShaderProgram(const char * vertexShaderPath, const char* geometryShaderPath, const char* fragmentShaderPath);	
 		ShaderProgram(const char * vertexShaderPath, const char** varyings = nullptr, GLuint amount = 0);  //varyings for recieving Shader Output
 		~ShaderProgram();
 
+		void CreateShaderProgram(const char * vertexShaderPath, const char* fragmentShaderPath);
+		void CreateShaderProgram(const char * vertexShaderPath, const char* geometryShaderPath, const char* fragmentShaderPath);
+		void CreateShaderProgram(const char * vertexShaderPath, const char** varyings = nullptr, GLuint amount = 0);  //varyings for recieving Shader Output
 		
 		//call to make Shader Program active, remains active until another shader is made active 
 		void UseShader();

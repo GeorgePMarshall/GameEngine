@@ -155,6 +155,8 @@
     <ClInclude Include="Headers\TestGame.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Shaders\BasicGeometry.frag" />
+    <None Include="Shaders\BasicGeometry.vert" />
     <None Include="Shaders\DefaultShader.frag" />
     <None Include="Shaders\DefaultShader.vert" />
   </ItemGroup>

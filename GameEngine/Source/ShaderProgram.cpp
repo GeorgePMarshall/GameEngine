@@ -4,6 +4,31 @@
 
 ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char* fragmentShaderPath)
 {
+	CreateShaderProgram(vertexShaderPath, fragmentShaderPath);
+}
+
+ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char* geometryShaderPath, const char* fragmentShaderPath)
+{
+	CreateShaderProgram(vertexShaderPath, geometryShaderPath, fragmentShaderPath);
+}
+
+ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char** varyings, GLuint amount)
+{
+	CreateShaderProgram(vertexShaderPath, varyings, amount);
+}
+
+ShaderProgram::~ShaderProgram()
+{
+	glDeleteProgram(programID);
+}
+
+void ShaderProgram::CreateShaderProgram(const char * vertexShaderPath, const char* fragmentShaderPath)
+{
+	if (programID != 0)
+	{
+		glDeleteProgram(programID);
+	}
+
 	GLuint vertexShader = CreateShader(vertexShaderPath, GL_VERTEX_SHADER);
 	GLuint fragmentShader = CreateShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
 
@@ -13,8 +38,13 @@ ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char* fragment
 	glDeleteShader(fragmentShader);
 }
 
-ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char* geometryShaderPath, const char* fragmentShaderPath)
+void ShaderProgram::CreateShaderProgram(const char * vertexShaderPath, const char* geometryShaderPath, const char* fragmentShaderPath)
 {
+	if (programID != 0)
+	{
+		glDeleteProgram(programID);
+	}
+
 	GLuint vertexShader = CreateShader(vertexShaderPath, GL_VERTEX_SHADER);
 	GLuint geometryShader = CreateShader(geometryShaderPath, GL_GEOMETRY_SHADER);
 	GLuint fragmentShader = CreateShader(fragmentShaderPath, GL_FRAGMENT_SHADER);
@@ -26,23 +56,22 @@ ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char* geometry
 	glDeleteShader(fragmentShader);
 }
 
-ShaderProgram::ShaderProgram(const char * vertexShaderPath, const char** varyings, GLuint amount)
+void ShaderProgram::CreateShaderProgram(const char * vertexShaderPath, const char** varyings, GLuint amount)
 {
+	if (programID != 0)
+	{
+		glDeleteProgram(programID);
+	}
+
 	GLuint vertexShader = CreateShader(vertexShaderPath, GL_VERTEX_SHADER);
-	
+
 	if (amount != 0)
 		glTransformFeedbackVaryings(programID, amount, varyings, GL_INTERLEAVED_ATTRIBS);
-		
+
 	LinkProgram(vertexShader);
 
 	glDeleteShader(vertexShader);
 }
-
-ShaderProgram::~ShaderProgram()
-{
-	glDeleteProgram(programID);
-}
-
 
 
 GLuint ShaderProgram::CreateShader(const char* name, GLenum shaderType)

@@ -1,16 +1,34 @@
 #include "TestGame.h"
-#include <ShaderProgram.h>
 
+#include <Object.h>
 
 void TestGame::Initialize()
 {
-	ShaderProgram shader("DefaultShader.vert", "DefaultShader.frag");
+	renderer.CreateGeom("triangle", new Triangle());
+	renderer.CreateGeom("square", new Square());
 
-
+	obj = objectManager.CreateObject(new Object());
+	obj->SetMesh(renderer.GetGeom("square"));
 }
 
 void TestGame::Update()
 {
+	if (input.GetKey(Key::t))
+	{
+		obj->Translate(glm::vec3(0.001f));
+	}
+
+	if (input.GetKey(Key::y))
+	{
+		static int i;
+		//std::cout << "scale" << i++ << std::endl;
+		obj->Scale(glm::vec3(1.0001f));
+	}
+
+	if (input.GetKey(Key::u))
+	{
+		obj->Rotate(0.1f, glm::vec3(0, 0, 1.0f));
+	}
 
 
 
@@ -26,7 +44,7 @@ void TestGame::Update()
 		
 	}
 
-	std::cout << input.GetTextInput();
+	//std::cout << input.GetTextInput();
 
 }
 
