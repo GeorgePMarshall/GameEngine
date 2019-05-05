@@ -11,12 +11,21 @@ Renderer::~Renderer()
 void Renderer::Initialize()
 {
 	mainCamera.SetPerspective(90, 16.f / 9.f);
-	mainFlyCamera.SetPerspective(90, 16.f / 9.f);
-	//mainCamera.SetOrthographic(-8, 8, -4.5, 4.5);
+	float ratio = 16.f / 9.f;
+	//mainCamera.SetOrthographic(-ratio, ratio, -1, 1);
 
 	geomShader.CreateShaderProgram("BasicGeometry.vert", "BasicGeometry.frag");
 }
 
+void Renderer::Update(GameTime &gameTime, Input &input)
+{
+	mainCamera.Update(gameTime, input);
+}
+
+void Renderer::Draw()
+{
+	
+}
 
 Mesh* Renderer::CreateGeom(const char* name, Geometry* mesh)
 {
@@ -35,13 +44,4 @@ Mesh* Renderer::GetGeom(const char* name)
 	return meshes[name];
 }
 
-void Renderer::Update(GameTime &gameTime, Input &input)
-{
-	mainFlyCamera.Update(gameTime, input);
-}
 
-
-void Renderer::Draw()
-{
-	
-}

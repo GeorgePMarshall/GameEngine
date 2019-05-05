@@ -24,8 +24,7 @@ class Renderer
 
 	public:
 
-		Camera mainCamera;
-		FlyCamera mainFlyCamera;
+		FlyCamera mainCamera;
 
 		~Renderer();
 

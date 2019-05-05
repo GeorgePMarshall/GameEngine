@@ -92,6 +92,9 @@ void Transform::Scale(const glm::vec3 &scalar)
 }
 void Transform::Rotate(GLfloat degrees, const glm::vec3 &axis)
 {
+	//rotation = glm::translate(rotation, glm::vec3(0.0f, -0.1f, 0.0f));
 	rotation = glm::rotate(rotation, glm::radians(degrees), axis);
+	//rotation = glm::translate(rotation, glm::vec3(0.0f, 0.1f, 0.0f));
+
 	transformDirty = true;
 }

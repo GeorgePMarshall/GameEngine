@@ -59,6 +59,9 @@ int Application::Run(const char* windowName)
 	glfwSetFramebufferSizeCallback(window, FramebufferSizeCallback);
 
 	glClearColor(0.0f, 0.5f, 0.5f, 1.0f);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_BACK);
 
 	glfwSwapInterval(1);
 
@@ -85,7 +88,7 @@ int Application::Run(const char* windowName)
 
 		//MAIN DRAW//
 		renderer.Draw();
-		objectManager.Draw(renderer.mainFlyCamera);
+		objectManager.Draw(renderer.mainCamera);
 		Draw();
 
 		//LATE UPDATE//

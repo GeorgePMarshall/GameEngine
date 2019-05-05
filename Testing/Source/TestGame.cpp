@@ -9,9 +9,11 @@ void TestGame::Initialize()
 
 	renderer.CreateGeom("triangle", new Triangle());
 	renderer.CreateGeom("square", new Square());
+	renderer.CreateGeom("cube", new Cube());
+
 
 	obj = objectManager.CreateObject(new Object());
-	obj->SetMesh(renderer.GetGeom("square"));
+	obj->SetMesh(renderer.GetGeom("cube"));
 	obj->transform.SetPosition(glm::vec3(0.0f, 0.0f, -3));
 
 }
@@ -27,7 +29,7 @@ void TestGame::Update()
 	{
 		static int i;
 		//std::cout << "scale" << i++ << std::endl;
-		obj->transform.Scale(glm::vec3(1.0001f));
+		obj->transform.Scale(glm::vec3(1.01f));
 	}
 
 	if (input.GetKey(Key::u))
