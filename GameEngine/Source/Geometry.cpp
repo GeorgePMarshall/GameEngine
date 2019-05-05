@@ -21,11 +21,11 @@ void Geometry::SetColour(glm::vec4 colour)
 }
 
 
-void Geometry::Draw(glm::mat4 transform)
+void Geometry::Draw(Transform &transform, const Camera &camera)
 {
 	shader->UseShader();
-	shader->SetMat4("projectionView", glm::identity<glm::mat4>());
-	shader->SetMat4("transform", transform);
+	shader->SetMat4("projectionView", camera.GetProjectionViewTransform());
+	shader->SetMat4("transform", transform.GetTransform());
 	shader->SetVec4("colour", colour);
 
 	glBindVertexArray(vertexArray);

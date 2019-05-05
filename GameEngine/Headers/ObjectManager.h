@@ -16,7 +16,7 @@ class ObjectManager
 	~ObjectManager();
 
 	void Update();
-	void Draw();
+	void Draw(const Camera &camera);
 
 	Object* CreateObject(Object* object);
 };

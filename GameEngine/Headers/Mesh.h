@@ -3,6 +3,8 @@
 #include <GLFW/glfw3.h>
 
 #include "ShaderProgram.h"
+#include "Camera.h"
+#include "Transform.h"
 
 class Mesh
 {
@@ -21,6 +23,6 @@ class Mesh
 
 		virtual void CreateBuffers() = 0;
 		void SetShaderProgram(ShaderProgram* shader);
-		virtual void Draw(glm::mat4 transform) = 0;
+		virtual void Draw(Transform &transform, const Camera &camera) = 0;
 };
 

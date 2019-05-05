@@ -4,30 +4,35 @@
 
 void TestGame::Initialize()
 {
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+
 	renderer.CreateGeom("triangle", new Triangle());
 	renderer.CreateGeom("square", new Square());
 
 	obj = objectManager.CreateObject(new Object());
 	obj->SetMesh(renderer.GetGeom("square"));
+	obj->transform.SetPosition(glm::vec3(0.0f, 0.0f, -3));
+
 }
 
 void TestGame::Update()
 {
 	if (input.GetKey(Key::t))
 	{
-		obj->Translate(glm::vec3(0.001f));
+		obj->transform.Translate(glm::vec3(0.001f));
 	}
 
 	if (input.GetKey(Key::y))
 	{
 		static int i;
 		//std::cout << "scale" << i++ << std::endl;
-		obj->Scale(glm::vec3(1.0001f));
+		obj->transform.Scale(glm::vec3(1.0001f));
 	}
 
 	if (input.GetKey(Key::u))
 	{
-		obj->Rotate(0.1f, glm::vec3(0, 0, 1.0f));
+		obj->transform.Rotate(0.1f, glm::vec3(0, 0, 1.0f));
 	}
 
 

@@ -6,9 +6,13 @@
 
 #include <map>
 
+#include "GameTime.h"
+#include "Input.h"
 #include "ShaderProgram.h"
 #include "Mesh.h"
 #include "Geometry.h"
+#include "Camera.h"
+#include "FlyCamera.h"
 
 class Renderer
 {
@@ -21,12 +25,12 @@ class Renderer
 	public:
 
 		Camera mainCamera;
-		
+		FlyCamera mainFlyCamera;
 
 		~Renderer();
 
 		void Initialize();
-
+		void Update(GameTime &gameTime, Input &input);
 		void Draw();
 
 		//Creates some geometry and adds it to the mesh list

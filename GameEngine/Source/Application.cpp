@@ -77,13 +77,15 @@ int Application::Run(const char* windowName)
 
 
 		//MAIN UPDATE//
+		gameTime.Update();
 		console.Update(input);
+		renderer.Update(gameTime, input);
 		objectManager.Update();
 		Update();
 
 		//MAIN DRAW//
 		renderer.Draw();
-		objectManager.Draw();
+		objectManager.Draw(renderer.mainFlyCamera);
 		Draw();
 
 		//LATE UPDATE//

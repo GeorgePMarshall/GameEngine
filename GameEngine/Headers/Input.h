@@ -140,8 +140,13 @@ struct Button
 {
 	GLint console = Key::grave;
 
-
-
+	GLint forwards = Key::w;
+	GLint backwards = Key::s;
+	GLint left = Key::a;
+	GLint right = Key::d;
+	GLint up = Key::space;
+	GLint down = Key::leftControl;
+	GLint sprint = Key::leftShift;
 };
 
 class Input

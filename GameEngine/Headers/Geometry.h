@@ -6,6 +6,7 @@
 
 #include "Mesh.h"
 #include "ShaderProgram.h"
+#include "Transform.h"
 
 class Geometry : public Mesh
 {
@@ -20,7 +21,7 @@ class Geometry : public Mesh
 	
 		void Initialize(ShaderProgram* shader, glm::vec4 colour = glm::vec4(1));
 		void SetColour(glm::vec4 colour);
-		void Draw(glm::mat4 transform = glm::identity<glm::mat4>());
+		void Draw(Transform &transform, const Camera &camera);
 	
 };
 

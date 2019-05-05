@@ -1,62 +1,37 @@
 #include "Camera.h"
 
-Camera::Camera()
-{
-	worldTransform = glm::identity<glm::mat4>();
-
-
-}
-
-Camera::~Camera()
-{
-
-}
-
-
 
 void Camera::UpdateProjectionViewTransform()
 {
-	viewTransform = glm::inverse(worldTransform);
+	viewTransform = glm::inverse(transform.GetTransform());
 	projectionViewTransform = projectionTransform * viewTransform;
 }
 
-void Camera::LookAt(glm::vec3 position, glm::vec3 target, glm::vec3 worldUp)
-{
-	worldTransform = glm::inverse(glm::lookAt(position, target, worldUp));
-	UpdateProjectionViewTransform();
-}
-
-
-
 void Camera::SetPerspective(GLfloat FOV, GLfloat aspectRatio, GLfloat nearPlane, GLfloat farPlane)
 {
-	projectionTransform = glm::perspective(FOV, aspectRatio, nearPlane, farPlane);
+	projectionTransform = glm::perspective(glm::radians(FOV), aspectRatio, nearPlane, farPlane);
 	UpdateProjectionViewTransform();
 }
-void Camera::SetOrthographic(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top)
+void Camera::SetOrthographic(GLfloat left, GLfloat right, GLfloat bottom, GLfloat top, GLfloat nearPlane, GLfloat farPlane)
 {
-	projectionTransform = glm::ortho(left, right, bottom, top);
-	UpdateProjectionViewTransform();
-}
-void Camera::SetWorldTransform(const glm::mat4& transform)
-{
-	worldTransform = transform;
+	projectionTransform = glm::ortho(left, right, bottom, top, nearPlane, farPlane);
 	UpdateProjectionViewTransform();
 }
 void Camera::SetPosition(glm::vec3 position)
 {
-	worldTransform[3] = glm::vec4(position, 1);
+	transform.SetPosition(position);
 	UpdateProjectionViewTransform();
 }
 
-
-glm::vec3 Camera::GetPosition() const
+void Camera::LookAt(glm::vec3 target)
 {
-	return worldTransform[3].xyz;
+	transform.LookAt(target);
+	UpdateProjectionViewTransform();
 }
-const glm::mat4& Camera::GetWorldTransform() const
+
+const Transform& Camera::GetWorldTransform() const
 {
-	return worldTransform;
+	return transform;
 }
 const glm::mat4& Camera::GetViewTransform() const
 {

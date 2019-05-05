@@ -23,11 +23,11 @@ void ObjectManager::Update()
 	}
 }
 
-void ObjectManager::Draw()
+void ObjectManager::Draw(const Camera &camera)
 {
 	for (Object* obj : objects)
 	{
-		obj->Draw();
+		obj->Draw(camera);
 	}
 }
 

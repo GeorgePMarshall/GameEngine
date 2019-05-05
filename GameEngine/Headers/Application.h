@@ -8,30 +8,26 @@
 
 #include <iostream>
 
+#include "GameTime.h"
 #include "Renderer.h"
 #include "ShaderProgram.h"
 #include "Input.h"
 #include "Console.h"
 #include "ObjectManager.h"
-#include "Camera.h"
 
 
 class Application
-{
-	private:
-		GLFWwindow* window;
-		
+{		
 	public:
 		int Run(const char* windowName);
 
 	protected:
+		GLFWwindow* window;
+		GameTime gameTime;
 		Input input;
 		Console console;
-
 		Renderer renderer;
-
 		ObjectManager objectManager;
-
 
 		virtual void Initialize() = 0;
 		virtual void Update() = 0;
